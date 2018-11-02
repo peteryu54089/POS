@@ -17,7 +17,7 @@ namespace POS
         /// </summary>
         /// <param name="args"></param>
         [STAThread]
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Form startUpForm = new StartUpForm();
             Application.Run(startUpForm);

@@ -33,7 +33,7 @@ namespace POS.Views
         /// <summary>
         /// 刷新 control
         /// </summary>
-        private void RefreshControls()
+        public void RefreshControls()
         {
             _front.Enabled = StartUp.IsFrontEnabled;
             _back.Enabled = StartUp.IsBackEnabled;
@@ -44,7 +44,7 @@ namespace POS.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ClickFront(object sender, EventArgs e)
+        public void ClickFront(object sender, EventArgs e)
         {
             Form form = new POSCustomerSideForm(StartUp.Sale);
             form.FormClosed += new FormClosedEventHandler(CloseFront);
@@ -59,7 +59,7 @@ namespace POS.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ClickBack(object sender, EventArgs e)
+        public void ClickBack(object sender, EventArgs e)
         {
             Form form = new POSRestaurantSideForm(StartUp.Sale);
             form.FormClosed += new FormClosedEventHandler(CloseBack);
@@ -74,7 +74,7 @@ namespace POS.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CloseFront(object sender, FormClosedEventArgs e)
+        public void CloseFront(object sender, FormClosedEventArgs e)
         {
             StartUp.CloseFront();
             RefreshControls();
@@ -85,7 +85,7 @@ namespace POS.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CloseBack(object sender, FormClosedEventArgs e)
+        public void CloseBack(object sender, FormClosedEventArgs e)
         {
             StartUp.CloseBack();
             RefreshControls();
@@ -96,7 +96,7 @@ namespace POS.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ClickExit(object sender, EventArgs e)
+        public void ClickExit(object sender, EventArgs e)
         {
             Application.Exit();
         }

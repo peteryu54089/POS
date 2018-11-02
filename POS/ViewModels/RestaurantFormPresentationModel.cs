@@ -180,19 +180,7 @@ namespace POS.ViewModels
         /// <returns></returns>
         public bool IsCategoryNameExist(object name)
         {
-            int count = 0;
-            foreach (KeyValuePair<string, IList<Meal>> categories in Categories)
-            {
-                if (categories.Key == name.ToString())
-                {
-                    count++;
-                }
-                if ((categories.Key == name.ToString() && IsAddOrEditCategory) || (count > 1))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return (Categories.ContainsKey(name.ToString()) && IsAddOrEditCategory);
         }
 
         /// <summary>
