@@ -219,7 +219,7 @@ namespace POS.Models
             foreach (Meal order in Order.Orders.ToArray())
             {
                 Order.TotalPrice -= order.UnitTotal;
-                SetBaseOrder(oldMealName, order, new Meal(meal.Name, meal.UnitPrice, meal.Detail, meal.Image, meal.Category));
+                SetBaseOrder(oldMealName, order, new Meal(meal.Name, meal.UnitPrice, meal.Detail, meal.Image, meal.Category.Name));
                 Order.TotalPrice += order.UnitTotal;
             }
             if (_saveMealEvent != null)
@@ -257,6 +257,34 @@ namespace POS.Models
             {
                 _updateCategoryEvent();
             }
+        }
+
+        /// <summary>
+        /// IsMealExistsInOrder
+        /// </summary>
+        /// <param name="mealIndex"></param>
+        /// <returns></returns>
+        public bool IsMealExistsInOrder(int mealIndex)
+        {
+            foreach (Meal meal in Order.Orders)
+            {
+                if (IsMealNameEqual(meal.Name, mealIndex))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// IsMealNameEqual
+        /// </summary>
+        /// <param name="mealName"></param>
+        /// <param name="mealIndex"></param>
+        /// <returns></returns>
+        public bool IsMealNameEqual(string mealName, int mealIndex)
+        {
+            return mealName == Meals[mealIndex].Name;
         }
     }
 }

@@ -66,7 +66,7 @@ namespace POS.Views
             {
                 Restaurant.IsAddOrEditMeal = false;
                 _editMeal.Text = _editMeal.Text.Replace(ADD, EDIT);
-                _deleteSelectedMeal.Enabled = true;
+                _deleteSelectedMeal.Enabled = !Restaurant.Sale.IsMealExistsInOrder(_mealListBox.SelectedIndex);
                 _editMeal.Enabled = true;
                 _mealImage.Enabled = false;
                 _saveMealButton.Text = SAVE;
@@ -148,7 +148,7 @@ namespace POS.Views
                 return;
             }
             object oldMealName = _mealListBox.SelectedItem;
-            Meal meal = new Meal(_mealName.Text, _mealPrice.Text, _mealDescription.Text, _mealImage.Text, _mealCategory.Text);
+            Meal meal = new Meal(_mealName.Text, _mealPrice.Text, _mealDescription.Text, _mealImage.Text, _mealCategory.SelectedItem);
             Restaurant.AddOrEditMealButton(oldMealName, meal);
             AddOrEditMeal();
             Restaurant.SetCategories();

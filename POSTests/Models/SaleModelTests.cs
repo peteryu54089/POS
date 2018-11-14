@@ -215,5 +215,25 @@ namespace POS.Models.Tests
         {
             sale.RefreshCustomerSideFormAfterUpdateCategory();
         }
+
+        /// <summary>
+        /// IsMealExistsInOrderTest
+        /// </summary>
+        [TestMethod()]
+        public void IsMealExistsInOrderTest()
+        {
+            bool isMealExistsInOrder;
+
+            sale.Meals = new List<Meal>();
+            sale.Order.Orders = new List<Meal>();
+            sale.Meals.Add(new Meal("name2", 1, "detail", "image", "category"));
+            sale.Order.Orders.Add(new Meal("name", 1, "detail", "image", "category"));
+            isMealExistsInOrder = sale.IsMealExistsInOrder(0);
+            Assert.AreEqual(false, isMealExistsInOrder);
+
+            sale.Order.Orders.Add(new Meal("name2", 1, "detail", "image", "category"));
+            isMealExistsInOrder = sale.IsMealExistsInOrder(0);
+            Assert.AreEqual(true, isMealExistsInOrder);
+        }
     }
 }
