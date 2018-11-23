@@ -1,0 +1,6 @@
+C:\Users\yuqingyun\source\project\POS\POSUITests\bin\Debug\POSUITests.dll
+C:\Users\yuqingyun\source\project\POS\POSUITests\bin\Debug\POSUITests.pdb
+C:\Users\yuqingyun\source\project\POS\POSUITests\obj\Debug\POSUITests.csprojAssemblyReference.cache
+C:\Users\yuqingyun\source\project\POS\POSUITests\obj\Debug\POSUITests.csproj.CoreCompileInputs.cache
+C:\Users\yuqingyun\source\project\POS\POSUITests\obj\Debug\POSUITests.dll
+C:\Users\yuqingyun\source\project\POS\POSUITests\obj\Debug\POSUITests.pdb
